@@ -1,0 +1,33 @@
+import { User } from '../models/User';
+import { Product } from '../models/Product';
+import { Order } from '../models/Order';
+import { Cart } from '../models/Cart';
+export declare class DatabaseService {
+    private static instance;
+    users: User[];
+    products: Product[];
+    orders: Order[];
+    carts: Cart[];
+    private constructor();
+    static getInstance(): DatabaseService;
+    findUserById(id: string): User | undefined;
+    findUserByEmail(email: string): User | undefined;
+    createUser(user: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): User;
+    updateUser(id: string, updates: Partial<User>): User | null;
+    deleteUser(id: string): boolean;
+    findProductById(id: string): Product | undefined;
+    findProducts(filter?: any): Product[];
+    createProduct(product: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>): Product;
+    updateProduct(id: string, updates: Partial<Product>): Product | null;
+    deleteProduct(id: string): boolean;
+    findOrderById(id: string): Order | undefined;
+    findOrdersByUserId(userId: string): Order[];
+    createOrder(order: Omit<Order, 'id' | 'createdAt' | 'updatedAt' | 'orderDate'>): Order;
+    updateOrder(id: string, updates: Partial<Order>): Order | null;
+    deleteOrder(id: string): boolean;
+    findCartById(id: string): Cart | undefined;
+    findCartByUserId(userId: string): Cart | undefined;
+    createCart(cart: Omit<Cart, 'id' | 'createdAt' | 'updatedAt'>): Cart;
+    updateCart(id: string, updates: Partial<Cart>): Cart | null;
+    deleteCart(id: string): boolean;
+}

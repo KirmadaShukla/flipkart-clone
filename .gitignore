@@ -15,4 +15,4 @@ lerna-debug.log*
 !.yarn/cache
 !.yarn/patches
 !.yarn/plugins
-dist/
+# dist/  # Removed this line to allow dist folder to be committed
